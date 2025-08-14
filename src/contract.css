@@ -1,0 +1,75 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.contract {
+    width: 343px;
+   height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.servises {
+    width: 343px;
+    /* border: 1px solid black; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 8px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.servise {
+    background-color: #F3F6FB;
+    padding: 8px 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.servise p {
+    font-size: 14px;
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.toggle-btn {
+    margin-top: 12px;
+    padding: 8px 16px;
+    background: linear-gradient(90deg, #4CAF50, #45A049);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.15);
+}
+
+.toggle-btn:hover {
+    background: linear-gradient(90deg, #45A049, #3e8e41);
+    transform: translateY(-2px);
+}
+
+.toggle-btn:active {
+    transform: scale(0.97);
+}
+
+.cost-card{
+    width: 310px;
+    height: 75px;
+    border-radius: 15px;
+    background-color: #F3F6FB;
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 5px;
+justify-content: center;
+}

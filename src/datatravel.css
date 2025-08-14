@@ -1,0 +1,79 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.data-card {
+  position: relative;
+  width: 343px;
+  height: auto;
+  /* border: 1px solid black; */
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+  margin-top: 20px;
+}
+
+.f1 {
+  width: 343px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid rgb(255, 16, 16); */
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.input {
+  width: 310px;
+  height: 38px;
+  background-color: #f3f6fb;
+  border-radius: 5px;
+  border: none;
+  padding: 5px 10px;
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.check .input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+  margin: 0;
+}
+
+.card-btn {
+  width: 343px;
+  height: 52px;
+  background-color: blue;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  padding: 15px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+/* Yangi: remove tugmasi dizayni */
+.remove-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  font-size: 14px;
+  cursor: pointer;
+  line-height: 22px;
+  text-align: center;
+}

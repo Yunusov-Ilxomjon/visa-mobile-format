@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.insurance-container {
+  width: 375px;
+  height: auto;
+  margin: 10px auto;
+  /* border: 1px solid black; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.header {
+  width: 100%;
+  height: 300px;
+  background:
+    url('../public/backg-img.png') no-repeat center center/cover,
+    url('../public/back.png') no-repeat center center/cover;
+  display: flex;
+  padding: 15px;
+  justify-content: space-between;
+}
+
+.logo {
+  height: 34px;
+  width: 160px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.lang {
+  height: 34px;
+  width: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+/* ---trip-date--- */
+
+.trip-date {
+  width: 343px;
+  height: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 100px;
+  gap: 15px;
+}
+
