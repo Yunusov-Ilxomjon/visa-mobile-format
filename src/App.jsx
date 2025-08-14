@@ -1,20 +1,32 @@
-import React, { useState, useRef } from "react";
+import React from "react";
+import { Routes, Route } from "react-router-dom";
 import LanguageSelect from "./LanguageSelect";
-import './App.css'
+import './App.css';
 import TripForm from './TripForm';
 import Contract from './Contract';
-import Parent from './Parent';
 import DataTravel from "./DataTravel";
+import Payment from "./components/Payment";
+import Success from './components/Success';
+import Failed from './components/Failed';
 
-const App = () => {
-  const [price, setPrice] = useState(0);
-  const contractRef = useRef(null); // Contract div uchun ref
+export default function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/payment" element={<Payment />} />
+      <Route path="/success" element={<Success />} />
+      <Route path="/failed" element={<Failed />} />
+    </Routes>
+  );
+}
+
+function HomePage() {
+  const [price, setPrice] = React.useState(0);
+  const contractRef = React.useRef(null);
 
   const handleCalculate = (days, travelersCount) => {
-    const total = days * travelersCount * 10; // To‘g‘ri formula
+    const total = days * travelersCount * 10;
     setPrice(total);
-
-    // Scroll qilish
     if (contractRef.current) {
       contractRef.current.scrollIntoView({ behavior: "smooth" });
     }
@@ -22,7 +34,6 @@ const App = () => {
 
   return (
     <div className='insurance-container'>
-      {/* ---------- HEADER ---------- */}
       <div className="header">
         <div className="logo">
           <img width={68} src="/logo.png" alt="" />
@@ -37,7 +48,6 @@ const App = () => {
         </div>
       </div>
 
-      {/* ---------- TRIP DATE ---------- */}
       <div className='trip-date'>
         <h1 style={{
           fontSize: '26px', color: 'white', fontWeight: '700',
@@ -47,18 +57,12 @@ const App = () => {
         </h1>
 
         <TripForm onCalculate={handleCalculate} />
-
-        {/* Contract joyi */}
         <div ref={contractRef}>
           <Contract price={price} />
         </div>
 
-        <DataTravel/>
-
-
+        <DataTravel />
       </div>
     </div>
   );
 }
-
-export default App;

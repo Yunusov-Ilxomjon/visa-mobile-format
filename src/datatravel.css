@@ -8,7 +8,15 @@
   position: relative;
   width: 343px;
   height: auto;
-  /* border: 1px solid black; */
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+  margin-top: 20px;
+}
+
+.buyer-card {
+  position: relative;
+  width: 343px;
+  height: auto;
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
   margin-top: 20px;
@@ -20,6 +28,16 @@
   display: flex;
   flex-direction: column;
   /* border: 1px solid rgb(255, 16, 16); */
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.f2 {
+  width: 343px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  margin-top: 25px;
   padding: 15px;
   box-sizing: border-box;
 }
@@ -76,4 +94,52 @@
   cursor: pointer;
   line-height: 22px;
   text-align: center;
+}
+
+.buyer-btn {
+  width: 160px;
+  height: 35px;
+  background-color: blue;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+
+.payment{
+  width: 343px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+justify-content: center;
+align-items: center;
+}
+
+.payment-btn{
+width: 100%;
+height: 70px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+background-color: blue;
+border:  none;
+border-radius: 15px;
+color: white;
+font-size: 16px;
+font-weight: 700;
+cursor: pointer;
+}
+
+.buyer-p{
+  font-family: sans-serif;
+  color: gray;
+  font-size: 13px;
+  text-align: center;
+  margin-top: 15px;
 }

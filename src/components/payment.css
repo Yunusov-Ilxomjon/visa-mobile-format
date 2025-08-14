@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.insurance-container {
+  width: 375px;
+  height: auto;
+  margin: 10px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.header {
+  width: 100%;
+  height: 300px;
+  background:
+    url('../public/backg-img.png') no-repeat center center/cover,
+    url('../public/back.png') no-repeat center center/cover;
+  display: flex;
+  padding: 15px;
+  justify-content: space-between;
+}
+
+.logo {
+  height: 34px;
+  width: 160px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.lang {
+  height: 34px;
+  width: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+/* payment.css */
+.payment-form {
+  width: 343px;
+  height: auto;
+  /* border: 1px solid black; */
+  position: absolute;
+  top: 120px;
+}
+
+.pay-form {
+  width: 340px;
+  background-color: white;
+  padding: 15px 10px;
+  box-sizing: border-box;
+  margin-top: 20px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.pay-label {
+  display: block;
+  font-weight: bold;
+  margin-top: 12px;
+  margin-bottom: 6px;
+  font-family: sans-serif;
+  margin-top: 10px;
+}
+
+.pay-input {
+  width: 100%;
+  padding: 12px;
+  background: #f5f8fb;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.pay-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.pay-col {
+  flex: 1;
+  margin-top: 10px;
+}
+
+.pay-small-input {
+  width: 100%;
+  padding: 12px;
+  background: #f5f8fb;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.pay-terms {
+  font-size: 14px;
+  color: #8c8b9b;
+  margin-top: 14px;
+}
+
+.pay-link {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+.pay-link:hover {
+  text-decoration: underline;
+}
+
+.pay-btn{
+    width: 343px;
+  height: 52px;
+  background-color: blue;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  padding: 15px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+}
