@@ -36,8 +36,8 @@ function HomePage() {
     <div className='insurance-container'>
       <div className="header">
         <div className="logo">
-          <img width={68} src="/logo.png" alt="" />
-          <img width={72} src="/location.png" alt="" />
+          <img width={68} height={33} src="/logo.png" alt="" />
+          <img width={72} height={18} src="/location.png" alt="" />
         </div>
 
         <div className="lang">

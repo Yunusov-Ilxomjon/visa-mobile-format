@@ -11,7 +11,28 @@ const Payment = () => {
   const [expiry, setExpiry] = useState("");
   const [cvv, setCvv] = useState("");
 
-  const isFormValid = cardNumber && expiry && cvv;
+  // ✅ Card Number formatlash #### #### #### ####
+  const handleCardNumberChange = (e) => {
+    let value = e.target.value.replace(/\D/g, ""); // faqat raqamlar
+    value = value.substring(0, 16); // maksimal 16 raqam
+    let formatted = value.replace(/(.{4})/g, "$1 ").trim(); // 4 raqamdan keyin bo‘sh joy
+    setCardNumber(formatted);
+  };
+
+  // ✅ Expiry input formatlash (07 -> 07/, 0727 -> 07/27)
+  const handleExpiryChange = (e) => {
+    let value = e.target.value.replace(/\D/g, ""); 
+    if (value.length >= 3) {
+      value = value.slice(0, 2) + "/" + value.slice(2, 4);
+    }
+    setExpiry(value);
+  };
+
+  // ✅ Validatsiya qoidalari
+  const isCardValid = cardNumber.replace(/\s/g, "").length === 16;
+  const isExpiryValid = /^\d{2}\/\d{2}$/.test(expiry);
+  const isCvvValid = cvv.length === 3;
+  const isFormValid = isCardValid && isExpiryValid && isCvvValid;
 
   const mobileAlert = (icon, title) => {
     return Swal.fire({
@@ -20,7 +41,7 @@ const Payment = () => {
       showConfirmButton: false,
       timer: 2000,
       background: '#fff',
-      width: '90%', // mobilga mos
+      width: '90%',
       padding: '1.5rem',
       customClass: {
         popup: 'swal-mobile-popup'
@@ -31,7 +52,12 @@ const Payment = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (cardNumber.startsWith("4455") && cardNumber.length === 16) {
+    if (!isFormValid) {
+      await mobileAlert('error', 'Please fill out all fields correctly');
+      return;
+    }
+
+    if (cardNumber.replace(/\s/g, "").startsWith("4455")) {
       await mobileAlert('success', 'Your payment SUCCESSFUL');
       navigate('/success');
     } else {
@@ -89,14 +115,15 @@ const Payment = () => {
             </div>
           </div>
 
+          {/* ✅ Card number avtomatik format */}
           <label className="pay-label">Card number</label>
           <input
             type="text"
             className="pay-input"
-            placeholder="4455..."
-            maxLength={16}
+            placeholder="4455 xxxx xxxx xxxx"
+            maxLength={19}
             value={cardNumber}
-            onChange={(e) => setCardNumber(e.target.value.replace(/\D/g, ""))}
+            onChange={handleCardNumberChange}
             required
           />
 
@@ -108,8 +135,8 @@ const Payment = () => {
                 className="pay-small-input"
                 placeholder="MM/YY"
                 value={expiry}
-                maxLength={4}
-                onChange={(e) => setExpiry(e.target.value)}
+                maxLength={5}
+                onChange={handleExpiryChange}
                 required
               />
             </div>
@@ -135,11 +162,8 @@ const Payment = () => {
             </a>
           </p>
 
-          <button
-            className='pay-btn'
-            type="submit"
-            disabled={!isFormValid}
-          >
+          {/* ✅ Endi tugma doim aktiv */}
+          <button className='pay-btn' type="submit">
             Pay now
           </button>
         </form>

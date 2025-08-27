@@ -74,18 +74,20 @@ export default function TripForm({ onCalculate }) {
   const mainInputLabel =
     travelers.length > 0 ? `${travelers.join(", ")} years` : "Select age";
 
-  // >>> Faqat tugma bosilganda hisoblaymiz
-  const handleCalculateClick = () => {
-    const travelersCount = travelers.length;
-    if (typeof onCalculate === "function") {
-      onCalculate(days, travelersCount); // Parent: days * travelers * 10
+  // Submit orqali hisoblash
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (travelers.length === 0) {
+      alert("Please add at least one traveler.");
+      return;
     }
-
-    
+    if (typeof onCalculate === "function") {
+      onCalculate(days, travelers.length);
+    }
   };
 
   return (
-    <form className="date-form" ref={wrapperRef} onSubmit={(e) => e.preventDefault()}>
+    <form className="date-form" ref={wrapperRef} onSubmit={handleSubmit}>
       <label htmlFor="start-date">The first trip date:</label>
       <input
         id="start-date"
@@ -93,6 +95,7 @@ export default function TripForm({ onCalculate }) {
         type="date"
         value={startDate}
         onChange={(e) => handleDateChange("start", e.target.value)}
+        required={!annual} // faqat annual bo‘lmaganda
       />
 
       {!annual ? (
@@ -104,6 +107,7 @@ export default function TripForm({ onCalculate }) {
             type="date"
             value={endDate}
             onChange={(e) => handleDateChange("end", e.target.value)}
+            required={!annual} // faqat annual bo‘lmaganda
           />
         </>
       ) : (
@@ -114,6 +118,7 @@ export default function TripForm({ onCalculate }) {
             className="date-input"
             value={annualDays}
             onChange={(e) => handleAnnualDaysSelect(e.target.value)}
+            required={annual} // faqat annual bo‘lsa
           >
             <option value="">Select days</option>
             {[10, 15, 30, 45, 60, 90, 180, 365].map((d) => (
@@ -143,7 +148,11 @@ export default function TripForm({ onCalculate }) {
         <h4 style={{ marginBottom: 8 }}>Travelers ({travelers.length}):</h4>
 
         <div className="input-select" onClick={() => setIsOpen((v) => !v)}>
-          <span className={`input-text ${travelers.length === 0 ? "placeholder" : ""}`}>
+          <span
+            className={`input-text ${
+              travelers.length === 0 ? "placeholder" : ""
+            }`}
+          >
             {mainInputLabel}
           </span>
           <span className="chev">{isOpen ? "▴" : "▾"}</span>
@@ -181,14 +190,9 @@ export default function TripForm({ onCalculate }) {
         </div>
       </div>
 
-<button
-  type="button"
-  className="form-btn"
-  onClick={() => onCalculate(days, travelers.length)}
->
-  Calculate
-</button>
-
+      <button type="submit" className="form-btn">
+        Calculate
+      </button>
     </form>
   );
 }

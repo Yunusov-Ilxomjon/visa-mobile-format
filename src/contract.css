@@ -6,7 +6,7 @@
 
 .contract {
     width: 343px;
-   height: auto;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -50,7 +50,7 @@
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0px 4px 8px rgba(0,0,0,0.15);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .toggle-btn:hover {
@@ -62,14 +62,14 @@
     transform: scale(0.97);
 }
 
-.cost-card{
+.cost-card {
     width: 310px;
     height: 75px;
     border-radius: 15px;
     background-color: #F3F6FB;
-display: flex;
-flex-direction: column;
-align-items: center;
-gap: 5px;
-justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    justify-content: center;
 }
